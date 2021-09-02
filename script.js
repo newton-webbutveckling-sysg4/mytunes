@@ -10,8 +10,9 @@ function renderCard(songData) {
 	h3Wrapper.append(h3)
 	let input = document.createElement('input')
 
-// display: none / block / inline
-// opacity: 0 / 1
+	// Tekniker för att göra element osynliga
+	// display: none / block / inline
+	// opacity: 0 / 1
 	h3.addEventListener('click', event => {
 		input.value = h3.innerText
 		h3Wrapper.innerHTML = ''
@@ -43,11 +44,27 @@ function renderCard(songData) {
 
 const mainGrid = document.querySelector('main')
 
-data.forEach(song => {
-	let card = renderCard(song)
-	mainGrid.append(card)
+// Sökfunktion (filtrera)
+const searchField = document.querySelector('.search > input')
+searchField.addEventListener('keyup', event => {
+	// console.log('Key event! ' + event.key);
+	let searchText = event.target.value.toLowerCase()
+	console.log(searchText);
+	renderSongs(searchText)
 })
-// data.map(song => renderCard(song)).forEach(divCard => mainGrid.append(divCard))
+
+function renderSongs(searchText = '') {
+	// console.log('Rendering songs');
+	mainGrid.innerHTML = ''
+	// filter motsvarar WHERE i SQL eller LINQ-query
+	data.filter(song => song.title.toLowerCase().includes(searchText))
+	.forEach(song => {
+		let card = renderCard(song)
+		mainGrid.append(card)
+	})
+	// data.map(song => renderCard(song)).forEach(divCard => mainGrid.append(divCard))
+}
+renderSongs()
 
 
 

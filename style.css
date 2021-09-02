@@ -33,6 +33,6 @@ main {
 .card > :nth-child(1) {
 	font-weight: bold;
 }
-.card > h3 {
+.card h3 {
 	margin: 0em;
 }
