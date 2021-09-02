@@ -1,0 +1,38 @@
+body {
+	margin: 0px;
+}
+header {
+	background: #A4C7E2;
+}
+header h1 {
+	margin: 0px;
+	padding: 0.5em 2em;
+}
+
+.search {
+	padding: 2em;
+	text-align: center;
+	border-bottom: 2px solid lightgray;
+}
+.search > input {
+	font-size: 1.5em;
+}
+
+main {
+	padding: 2em;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	padding: 0.5em;
+	margin: 0.3em;
+}
+.card > :nth-child(1) {
+	font-weight: bold;
+}
+.card > h3 {
+	margin: 0em;
+}
